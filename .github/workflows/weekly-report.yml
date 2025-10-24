@@ -1,10 +1,9 @@
-.github/workflows/weekly-report.yml
 name: Weekly ARCTEAM Report
 
 on:
   schedule:
-    - cron: "0 6 * * 1"   # Her Pazartesi sabah 09:00 Türkiye saati (UTC+3)
-  workflow_dispatch:        # Manuel tetikleme seçeneği
+    - cron: "0 6 * * 1"   # Every Monday at 09:00 (UTC+3, Turkey time)
+  workflow_dispatch:        # Manual trigger option
 
 jobs:
   send_report:
@@ -13,5 +12,5 @@ jobs:
       - name: Send Supabase Function Request
         run: |
           curl -i -X POST "https://zpaqpjeibivnffqdktwf.supabase.co/functions/v1/send-weekly-report" \
-          -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpwYXFwamVpYml2bmZmcWRrdHdmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjA4NTAyODIsImV4cCI6MjA3NjQyNjI4Mn0.N34JnHpeed4Ma8IMpw2giKK_JlZV79_vod__a5k3CTk" \
-          -H "Content-Type: application/json"
+            -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpwYXFwamVpYml2bmZmcWRrdHdmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjA4NTAyODIsImV4cCI6MjA3NjQyNjI4Mn0.N34JnHpeed4Ma8IMpw2giKK_JlZV79_vod__a5k3CTk" \
+            -H "Content-Type: application/json"
